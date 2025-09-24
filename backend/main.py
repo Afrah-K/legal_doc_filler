@@ -9,6 +9,8 @@ from langchain.memory import ConversationBufferMemory
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
 import tempfile, os, uuid, re, json
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
 
 load_dotenv()
 
@@ -170,3 +172,14 @@ async def fill_doc(file_id: str = Form(...), values: str = Form(...)):
     tpl.save(out_path)
 
     return FileResponse(out_path, filename="filled.docx")
+
+# -------------------
+# Serve React frontend
+# -------------------
+build_path = Path(__file__).parent.parent / "frontend" / "build"
+app.mount("/static", StaticFiles(directory=build_path / "static"), name="static")
+
+@app.get("/{full_path:path}")
+async def serve_react(full_path: str):
+    index_file = build_path / "index.html"
+    return FileResponse(index_file)
