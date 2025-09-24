@@ -79,7 +79,7 @@ function App() {
 
   return (
     <div className="flex flex-col h-screen max-w-3xl mx-auto p-4 font-sans">
-      <h1 className="text-3xl font-bold mb-4 text-gray-800">Legal Doc Chat Filler</h1>
+      <h1 className="text-3xl font-bold mb-4 text-gray-800">Legal Document Chat Filler</h1>
 
       {!fileId && (
         <div className="mb-6 space-x-4 flex flex-wrap items-center">

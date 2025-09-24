@@ -5,3 +5,4 @@ docxtpl
 python-multipart
 aiofiles
 openai
+dotenv
