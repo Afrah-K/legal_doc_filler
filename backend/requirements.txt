@@ -7,3 +7,4 @@ aiofiles
 openai
 dotenv
 langchain-openai
+langchain
