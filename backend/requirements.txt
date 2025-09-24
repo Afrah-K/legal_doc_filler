@@ -6,3 +6,4 @@ python-multipart
 aiofiles
 openai
 dotenv
+langchain-openai
